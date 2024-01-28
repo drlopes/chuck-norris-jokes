@@ -15,12 +15,13 @@ class JokeFactoryTest extends TestCase
     {
         $mock = new MockHandler([
             new Response(200, [], '{
-                "type": "success",
-                "value": {
-                    "id": 469,
-                    "joke": "Chuck Norris can binary search unsorted data.",
-                    "categories": ["nerdy"]
-                }
+                "categories": [],
+                "created_at": "2020-01-05 13:42:25.099703",
+                "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+                "id": "qWBbR7_sQXy2ZSjUzmQspA",
+                "updated_at": "2020-01-05 13:42:25.099703",
+                "url": "https://api.chucknorris.io/jokes/qWBbR7_sQXy2ZSjUzmQspA",
+                "value": "Chuck Norris once made a snowman....out of rain."
             }'),
         ]);
 
@@ -32,44 +33,6 @@ class JokeFactoryTest extends TestCase
 
         $joke = $jokeFactory->getRandomJoke();
 
-        $this->assertSame('Chuck Norris can binary search unsorted data.', $joke);
-    }
-
-    public function test_it_returns_multiple_random_jokes()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], '{
-                "type": "success",
-                "value": [
-                    {
-                        "id": 469,
-                        "joke": "Chuck Norris can binary search unsorted data.",
-                        "categories": ["nerdy"]
-                    },
-                    {
-                        "id": 469,
-                        "joke": "Chuck Norris can binary search unsorted data.",
-                        "categories": ["nerdy"]
-                    }
-                ]
-            }'),
-        ]);
-
-        $handler = HandlerStack::create($mock);
-
-        $client = new Client(['handler' => $handler]);
-
-        $jokeFactory = new JokeFactory($client);
-
-        $jokes = $jokeFactory->getRandomJokes(2);
-        
-        $this->assertIsArray($jokes);
-        
-        $this->assertSame([
-            'Chuck Norris can binary search unsorted data.',
-            'Chuck Norris can binary search unsorted data.',
-        ], $jokes);
-
-        $this->assertSame(2, count($jokes));
+        $this->assertSame('Chuck Norris once made a snowman....out of rain.', $joke);
     }
 }

@@ -1,0 +1,25 @@
+{
+    "name": "drlopes/chuck-norris-jokes",
+    "description": "Random silly Chuck Norris jokes",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DRLopes\\ChuckNorrisJokes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DRLopes\\ChuckNorrisJokes\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Lopes",
+            "email": "daniellopes2_96@hotmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}

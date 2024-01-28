@@ -63,4 +63,13 @@ class JokeFactoryTest extends TestCase
 
         $this->assertSame('This is a joke', $joke);
     }
+
+    public function test_it_returns_multiple_random_jokes()
+    {
+        $factory = new JokeFactory();
+
+        $jokes = $factory->getRandomJokes(5);
+
+        $this->assertCount(5, $jokes);
+    }
 }

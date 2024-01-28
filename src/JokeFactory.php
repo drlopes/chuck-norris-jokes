@@ -46,8 +46,19 @@ class JokeFactory
         }
     }
 
-    public function getRandomJoke()
+    public function getRandomJoke(): string
     {
         return $this->jokes[array_rand($this->jokes)];
+    }
+
+    public function getRandomJokes(int $amount): array
+    {
+        $jokes = [];
+
+        for ($i = 0; $i < $amount; $i++) {
+            $jokes[] = $this->getRandomJoke();
+        }
+
+        return $jokes;
     }
 }

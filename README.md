@@ -1,4 +1,4 @@
-# Chuck NOrris Jokes
+# Chuck Norris Jokes
 
 Create random Chuck Norris jokes
 
